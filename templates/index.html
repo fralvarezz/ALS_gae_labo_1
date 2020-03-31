@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo</title>
+
+    <script>
+        function check() {
+            var kms = parseFloat(document.getElementById("kms").value);
+            var tiempo = parseFloat(document.getElementById("tiempo").value);
+            var consumo_medio = parseFloat(document.getElementById("consumo_medio").value)
+
+            var toret = true;
+
+            if(isNaN(kms) || isNaN(tiempo) || isNaN(consumo_medio)){
+                toret = false;
+            }
+            else if (tiempo === 0){
+                toret = false;
+            }
+
+            return toret;
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <h1>¡Salúdame!</h1>
+
+    <form id="frmConsumo"
+          action="/consumo"
+          method="post"
+          onsubmit="return check();">
+        <label for="kms">Kilometros: </label>
+        <input type="text" id="kms" name="kms" />
+        <label for="Tiempo">Tiempo: </label>
+        <input type="text" id="tiempo" name="tiempo" />
+        <label for="consumo_medio">Consumo medio: </label>
+        <input type="text" id="consumo_medio" name="consumo_medio" />
+        <input type="submit" value="Go" />
+    </form>
+</body>
+</html>
